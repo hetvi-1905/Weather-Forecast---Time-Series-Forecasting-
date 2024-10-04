@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecasting</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Forecasting</h1>
+
+        <form method="POST">
+            <label for="model">Select Model:</label>
+            <select id="model" name="model">
+                <option value="ARIMA">ARIMA</option>
+                <option value="SARIMAX">SARIMAX</option>
+            </select>
+
+            <input type="submit" value="Generate Forecast">
+        </form>
+
+        {% if forecast %}
+        <h2>Forecast using {{ model }}</h2>
+        <ul>
+            {% for value in forecast %}
+            <li>{{ value }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
